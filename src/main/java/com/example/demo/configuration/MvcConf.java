@@ -12,9 +12,5 @@ public class MvcConf implements WebMvcConfigurer {
         registry.addViewController("/vhod").setViewName("vhod");
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/");
-    }
+
 }
