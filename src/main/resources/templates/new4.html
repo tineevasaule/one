@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ClinicKG</title>
+    <style>
+body {
+	/* background: #000;*/
+	color: rgb(0, 0, 0);
+	font-family: 'Montserrat', sans-serif;
+	padding: 0;
+  margin: 0;
+  background: url(logo/back.jpg)
+}
+
+div, p, a, img, form, button {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul, li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+	background: #ADD8E6;
+	box-shadow: 0 0 25px 5px grey;
+}
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.menu {
+	display: flex;
+	margin-left: 160px;
+}
+
+.menu li {
+    list-decoration: none;
+	font-size: 18px;
+	margin-right: 25px;
+}
+
+.menu li a {
+	color: #000;
+	padding: 12px 0;
+}
+.logo {
+    width: 140px;
+    height: 100px;
+}
+.nav {
+	float: right;
+}
+
+.button {
+		padding: 10px;
+		background: rgb(104, 128, 163);
+		color: black;
+		text-decoration: none;
+		font-size: 12px;
+		margin-left: 10px;
+	}
+
+	.slider{
+		max-width: 90%;
+		position: relative;
+		margin: auto;
+		height: 400px;
+		margin-bottom: 15px;
+	}
+	/* Картинка мастабируется по отношению к родительскому элементу */
+	.slider .item img {
+		object-fit: cover;
+		width: 100%;
+		height: 400px;
+		border: none !important;
+		box-shadow: none !important;
+	}
+	/* Кнопки вперед и назад */
+	.slider .prev, .slider .next {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		top: 50%;
+		width: auto;
+		margin-top: -22px;
+		padding: 16px;
+		color: white;
+		font-weight: bold;
+		font-size: 18px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+	}
+	.slider .next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+	/* При наведении на кнопки добавляем фон кнопок */
+	.slider .prev:hover,
+	.slider .next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Кружочки */
+	.slider-dots {
+		text-align: center;
+	}
+	.slider-dots_item{
+		cursor: pointer;
+		height: 12px;
+		width: 12px;
+		margin: 0 2px;
+		background-color: #ddd;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+	}
+	.active,
+	.slider-dots_item:hover {
+		background-color: #aaa;
+	}
+	/* Анимация слайдов */
+	.slider .item {
+		-webkit-animation-name: fade;
+		-webkit-animation-duration: 1.5s;
+		animation-name: fade;
+		animation-duration: 1.5s;
+	}
+	@-webkit-keyframes fade {
+		from {
+			opacity: .4
+		}
+		to {
+			opacity: 1
+		}
+	}
+	@keyframes fade {
+		from {
+			opacity: .4
+		}
+		to {
+			opacity: 1
+		}
+	}
+.news {
+	display: flex;
+	align-items: center;
+
+}
+.new {
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+.block {
+	width: 25%;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	margin: 10px;
+}
+.block .media{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	color: black;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	text-align: center;
+	padding-top: 130px;
+	transition: .5s
+}
+.block:hover > .media {
+	opacity: 1.0;
+	background:rgb(70, 107, 163);
+	width: 100%;
+	top: 80%;
+	padding-top: 0;
+	font-size: 10px;
+}
+.block .media .h1 {
+	margin: 0;
+}
+.about {
+	display: flex;
+	align-items: center;
+}
+.ab {
+	float: right;
+	font-size: 18px;
+	padding: 15px;
+}
+.text {
+	display: block;
+	position: relative;
+	text-align: center;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.texty {
+	display: block;
+	position: relative;
+	text-align: left;
+	float: right;
+	margin-top: 10px;
+	font-size: 18px;
+}
+.vrachi {
+	overflow: auto;
+}
+
+.vrach {
+	width: 25%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.wi {
+	overflow: auto;
+}
+
+.wir {
+	width: 25%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.novosti {
+  display: block;
+	position: relative;
+	text-align: center;
+	margin-top: 30px;
+}
+
+#footer {
+	background: #ADD8E6;
+	height: 100px;
+	clear: both;
+}
+
+    </style>
+    <script>
+        /* Индекс слайда по умолчанию */
+var slideIndex = 1;
+showSlides(slideIndex);
+
+/* Функция увеличивает индекс на 1, показывает следующй слайд*/
+function plusSlide() {
+    showSlides(slideIndex += 1);
+}
+
+/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+function minusSlide() {
+    showSlides(slideIndex -= 1);
+}
+
+/* Устанавливает текущий слайд */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Основная функция слайдера */
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("item");
+    var dots = document.getElementsByClassName("slider-dots_item");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+
+
+
+
+    </script>
+<body>
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <img src="logo/logo.png" class="logo">
+            <ul class="menu">
+                <li><a href="/index" class="ssylka">Главная</a></li>
+                <!-- <li><a href="#1" class="ssylka">Новости</a></li>
+                  <li><a href="#2" class="ssylka">О нас</a></li>
+                      <li><a href="#3" class="ssylka">Врачи</a></li> -->
+                <li><a href="/kont" class="ssylka">Контакты</a></li>
+            </ul>
+            <div class="navigat">
+                <a href="https://www.instagram.com/on_clinic.kg/?hl=ru"><img src="logo/i.png"width="40px" height="auto"></a>
+                <a href="https://www.facebook.com/onclinic.kg/?ref=aymt_homepage_panel"><img src="logo/f.png" width="40px" height="auto"></a>
+                <a href="https://wa.me/996702770570"><img src="logo/wa.png" width="40px" height="auto"></a>
+            </div><div class="nav2">
+            <button class="button"><a href = "/registr"><h3>Зарегистрироваться</h3></a></button>
+            <button class="button"><a href = "/vhod"><h3>Вход</h3></a></button>
+        </div>
+        </nav>
+    </div>
+</header>
+<br>
+<div class="container">
+        <span>
+					<h1>9 привычек, которые тормозят наш мозг:</h1>
+				</span>
+    <div class="novosti">
+        <img src="news/4.jpg" width="600px" height="auto">
+    </div>
+    <div>
+        <h3>1. Зависание в соцсетях</h3>
+        <p>Не секрет, что постоянная прокрутка лент в Instagram, Facebook, «ВКонтакте» и других социальных сетях мешает нам сосредотачиваться.
+            Мы получаем много самой разной информации за маленький промежуток времени, да еще и небольшими порциями.
+            Для мозга такое поведение быстро становится привычным. Он постоянно перескакивает с задачи на задачу и ищет новое.
+            Если же нужно внимательно поработать, приходится с большим трудом останавливаться и концентрироваться на чем-то одном.<br><br>
+            <b> Что делать?</b><br>
+            Почитать книгу, сходить на тренировку или заняться любой физической деятельностью.</p>
+    </div>
+    <div>
+        <h3>2. Поиск всех ответов в интернете</h3>
+        <p>Конечно, неограниченный доступ к информации значительно упростил нашу жизнь. Мы больше не сидим в библиотеках, выискивая нужные данные,
+            и не тратим время на ксерокопирование книг.
+            Но есть и другой момент. Психологи говорят о так называемом «эффекте Google»:
+            когда мы знаем, что всю информацию всегда можно найти, задав вопрос в поисковике, мы быстро ее забываем.
+            И, получается, автоматически отвыкаем использовать собственную память.<br><br>
+            <b> Что делать?</b><br>
+            В следующий раз, как только рука потянется спросить Google, как испечь печенье или сколько варить пельмени, попробуйте вспомнить мамины подсказки.</p>
+    </div>
+    <div>
+        <h3>3. Работа во время болезни</h3>
+        <p>Часто мы ходим в офис, не обращая внимания на насморк или кашель. Но подобное поведение чревато осложнениями.
+            В периоды, когда иммунитет ослаблен, сердце работает с повышенной нагрузкой и мозг тоже нацелен на поддержание здоровья,
+            а не на эффективность в труде. В итоге ни качественной работы, ни быстрого выздоровления.<br><br>
+            <b> Что делать?</b><br>
+            Заболели — отлежитесь дома, отдохните и хорошо пролечитесь. А потом с новыми силами уже за работу.</p>
+    </div>
+    <div>
+        <h3>4. Отказ от общения</h3>
+        <p>Коммуникация — очень важный способ развития мозга. Во время общения с разными людьми формируются новые нейронные связи.
+            Если же человек привык отмалчиваться, мало говорит,
+            ограничивается узким кругом общения, он этим самым ограничивает свое развитие.<br><br>
+            <b> Что делать?</b><br>
+            Если друзья приглашают на вечеринку — согласиться. И в следующий раз тоже.
+            Так постепенно появится куча общих тем, которые можно обсуждать бесконечно.</p>
+    </div>
+    <div>
+        <h3>5. Привычка мало спать и поздно просыпаться</h3>
+        <p>Во время сна наш мозг активно работает, кодируя информацию. Короткий и некачественный сон влияет на нашу способность к обучению новому.
+
+            Если вы мало спите, ложитесь за полночь, а потом и встаете поздно, это влияет на качество запоминания данных.
+            Внимание становится более рассеянным, а память работает хуже.<br><br>
+            <b> Что делать?</b><br>
+            Наладить собственный ритм, в котором ночь будет для сна, а утро — для продуктивной работы.
+
+        </p>
+    </div>
+    <div>
+        <h3>6. Мысли о своем исключительном уме</h3>
+        <p>Исследования Кэрол Двек, профессора психологии Стэнфордского университета, показывают: стоит очень осторожно хвалить людей.
+            В частности, если петь восторженные оды не достижениям, а уму собеседника, со временем это может сыграть с ним злую шутку.
+            И вот почему.
+
+            Существуют 2 типа мышления: неподвижное и мышление роста.
+            Люди с мышлением первого типа считают, что все свои способности получили с рождения,
+            а принять неудачу — значит расписаться в собственной глупости. Поэтому они избегают ситуаций с повышенным риском.
+
+            Люди с мышлением роста думают, что попытки делают их умнее. Неудача не выбивает их из колеи, а, наоборот, помогает проанализировать ошибки и в следующий раз больше стараться.<br><br>
+            <b> Что делать?</b><br>
+            Лучше считать себя не умным, а человеком, который еще многого не знает. Это действительно поможет стать умнее.</p>
+    </div>
+    <div>
+        <h3>7. Частая проверка мессенджеров</h3>
+        <p>Привычка постоянно проверять мессенджеры, почту,
+            многозадачность и постоянное перепрыгивание с задачи на задачу делает нас глупыми.
+            Мы постоянно отвлекаемся и потом дольше входим в рабочий ритм.<br><br>
+            <b> Что делать?</b><br>
+            Сосредоточиться на выполнении всего одного дела за раз. А переписку проверять раз в 3–4 часа, этого вполне достаточно.</p>
+    </div>
+    <div>
+        <h3>8. Жевание жвачки</h3>
+        <p>Ранее ученые считали, что жвачка сказывается позитивно на работе мозга. Ведь ее жевание повышает кровоток к мозгу и тем самым улучшает умственные функции.
+
+            Но в последнее время исследователи заговорили, что в процессе жевания человек отвлекается от основной задачи — кратковременного запоминания.
+            Например, ему сложнее выучить порядок предметов в списке.<br><br>
+            <b> Что делать?</b><br>
+            Жевать жвачку по дороге на работу или домой, если очень хочется. А во время самой работы лучше воздержаться.</p>
+    </div>
+    <div>
+        <h3>9. Потребление жирной пищи</h3>
+        <p>Слишком большая концентрация насыщенных жиров в пище мешает выработке дофамина — вещества, которое помогает клеткам мозга передавать сигналы. Еда, богатая жирами, отрицательно влияет на гибкость нашего ума, ухудшает память, замедляет время реакции. К тому же чем больше насыщенных жиров мы едим, тем больше нам их хочется и тем больше нужно съесть, чтобы получить удовлетворение.<br><br>
+            <b> Что делать?</b><br>
+            Ограничить потребление насыщенных жиров. Если уж очень хочется жирного, включите в меню больше полезных жиров: рыбы, оливкового масла, авокадо.</p>
+    </div>
+
+    <footer id="footer">
+
+    </footer>
+</div>
+<!--<script src="script.js"></script>-->
+</body>
+</html>

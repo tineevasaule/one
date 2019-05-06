@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ClinicKG</title>
+
+    <!--<link rel="stylesheet" href="<c:url value=/resources/css/style.css">-->
+    <!--<script src="<c: url value =/resources/static/script.js"></script>-->
+    <style>
+body {
+	/* background: #000;*/
+	color: rgb(0, 0, 0);
+	font-family: 'Montserrat', sans-serif;
+	padding: 0;
+  margin: 0;
+  background: url(logo/back.jpg)
+}
+
+div, p, a, img, form, button {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul, li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+	background: #ADD8E6;
+	box-shadow: 0 0 25px 5px grey;
+}
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.menu {
+	display: flex;
+	margin-left: 160px;
+}
+
+.menu li {
+    list-decoration: none;
+	font-size: 18px;
+	margin-right: 25px;
+}
+
+.menu li a {
+	color: #000;
+	padding: 12px 0;
+}
+.logo {
+    width: 140px;
+    height: 100px;
+}
+.nav {
+	float: right;
+}
+
+.button {
+		padding: 10px;
+		background: rgb(104, 128, 163);
+		color: black;
+		text-decoration: none;
+		font-size: 12px;
+		margin-left: 10px;
+	}
+
+	.slider{
+		max-width: 90%;
+		position: relative;
+		margin: auto;
+		height: 400px;
+		margin-bottom: 15px;
+	}
+	/* Картинка мастабируется по отношению к родительскому элементу */
+	.slider .item img {
+		object-fit: cover;
+		width: 100%;
+		height: 400px;
+		border: none !important;
+		box-shadow: none !important;
+	}
+	/* Кнопки вперед и назад */
+	.slider .prev, .slider .next {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		top: 50%;
+		width: auto;
+		margin-top: -22px;
+		padding: 16px;
+		color: white;
+		font-weight: bold;
+		font-size: 18px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+	}
+	.slider .next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+	/* При наведении на кнопки добавляем фон кнопок */
+	.slider .prev:hover,
+	.slider .next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Кружочки */
+	.slider-dots {
+		text-align: center;
+	}
+	.slider-dots_item{
+		cursor: pointer;
+		height: 12px;
+		width: 12px;
+		margin: 0 2px;
+		background-color: #ddd;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+	}
+	.active,
+	.slider-dots_item:hover {
+		background-color: #aaa;
+	}
+	/* Анимация слайдов */
+	.slider .item {
+		-webkit-animation-name: fade;
+		-webkit-animation-duration: 1.5s;
+		animation-name: fade;
+		animation-duration: 1.5s;
+	}
+	@-webkit-keyframes fade {
+		from {
+			opacity: .4
+		}
+		to {
+			opacity: 1
+		}
+	}
+	@keyframes fade {
+		from {
+			opacity: .4
+		}
+		to {
+			opacity: 1
+		}
+	}
+.news {
+	display: flex;
+	align-items: center;
+
+}
+.new {
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+.block {
+	width: 25%;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	margin: 10px;
+}
+.block .media{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	color: black;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	text-align: center;
+	padding-top: 130px;
+	transition: .5s
+}
+.block:hover > .media {
+	opacity: 1.0;
+	background:rgb(70, 107, 163);
+	width: 100%;
+	top: 80%;
+	padding-top: 0;
+	font-size: 10px;
+}
+.block .media .h1 {
+	margin: 0;
+}
+.about {
+	display: flex;
+	align-items: center;
+}
+.ab {
+	float: right;
+	font-size: 18px;
+	padding: 15px;
+}
+.text {
+	display: block;
+	position: relative;
+	text-align: center;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.texty {
+	display: block;
+	position: relative;
+	text-align: left;
+	float: right;
+	margin-top: 10px;
+	font-size: 18px;
+}
+.vrachi {
+	overflow: auto;
+}
+
+.vrach {
+	width: 25%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.wi {
+	overflow: auto;
+}
+
+.wir {
+	width: 25%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.novosti {
+  display: block;
+	position: relative;
+	text-align: center;
+	margin-top: 30px;
+}
+
+#footer {
+	background: #ADD8E6;
+	height: 100px;
+	clear: both;
+}
+
+    </style>
+    <script>
+        /* Индекс слайда по умолчанию */
+var slideIndex = 1;
+showSlides(slideIndex);
+
+/* Функция увеличивает индекс на 1, показывает следующй слайд*/
+function plusSlide() {
+    showSlides(slideIndex += 1);
+}
+
+/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+function minusSlide() {
+    showSlides(slideIndex -= 1);
+}
+
+/* Устанавливает текущий слайд */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Основная функция слайдера */
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("item");
+    var dots = document.getElementsByClassName("slider-dots_item");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+
+
+
+
+    </script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <img src="logo/logo.png" class="logo">
+            <ul class="menu">
+                <li><a href="/index" class="ssylka">Главная</a></li>
+                <!-- <li><a href="#1" class="ssylka">Новости</a></li>
+                  <li><a href="#2" class="ssylka">О нас</a></li>
+                      <li><a href="#3" class="ssylka">Врачи</a></li> -->
+                <li><a href="/kont" class="ssylka">Контакты</a></li>
+            </ul>
+            <div class="navigat">
+                <a href="https://www.instagram.com/on_clinic.kg/?hl=ru"><img src="logo/i.png"width="40px" height="auto"></a>
+                <a href="https://www.facebook.com/onclinic.kg/?ref=aymt_homepage_panel"><img src="logo/f.png" width="40px" height="auto"></a>
+                <a href="https://wa.me/996702770570"><img src="logo/wa.png" width="40px" height="auto"></a>
+            </div><div class="nav2">
+            <button class="button"><a href = "/registr"><h3>Зарегистрироваться</h3></a></button>
+            <button class="button"><a href = "/vhod"><h3>Вход</h3></a></button>
+        </div>
+        </nav>
+    </div>
+</header>
+<br>
+<div class="container">
+        <span>
+					<h1>Антиоксиданты: зачем они нужны и в каких продуктах содержатся</h1>
+					<p>Слово «антиоксиданты» сегодня на устах у врачей, косметологов,
+						клинических фармакологов и у тех людей, которые внимательно
+						относятся к соб­ственному здоровью и не хотят стареть.
+						Зачем эти вещества нужны нам и какие продукты способны их обеспечить?</p>
+				</span>
+    <div class="novosti">
+        <img src="news/1.jpg" width="600px" height="auto">
+    </div>
+    <p>Наш организм – это огромная, хорошо отлаженная химическая лаборатория,
+        в которой происходит множество всевозможных реакций.
+        Все они имеют важное значение для обновления клеток, кроветворения и
+        синтеза различных биологических субстанций. Они обеспечивают работу организма,
+        производство энергии, передачу нервных сигналов к нашим мышцам.
+        В этих реакциях участвуют и свободные радикалы, которые часто ругают за их агрессивный нрав.
+        На самом деле без них работа нашего организма просто остановилась бы.<br><br>
+        Свободный радикал – это атом или группа атомов, которые содержат один или
+        несколько непарных электронов. Именно эти непарные электроны, как магнит,
+        легко притягивают к себе другие молекулы. Свободные радикалы участвуют в
+        производстве гормонов и активизируют необходимые для нашего организма ферменты,
+        они задействованы в выработке энергии.Некоторые из них производятся нашей собственной
+        иммунной системой и защищают нас от вирусов и бактерий. В небольшом количестве –
+        они наши друзья и помощники, но, если их слишком много, становятся нашими врагами,
+        которые вторгаются в отлаженные биохимические процессы и нарушают их течение.<br><br>
+        Прежде всего лишние свободные радикалы окисляют липиды, из которых состоит защитная мембрана клеток.
+        Оставшись без защиты, клетки либо гибнут, либо подвергаются мутациям.
+        Эти агрессивные молекулы нарушают структуру белков, уничтожая их клеточные рецепторы.
+        Такие поврежденные белки становятся невосприимчивыми к действию гормонов,
+        не реагируют на сигнальные молекулы, а иммунная система распознает их как чужих и подвергает атаке.
+        Последствия радикального окисления трагичны для организма. Он быстро стареет, разрушаются стенки сосудов,
+        в крови увеличивается количество холестерина, возникают аутоиммунные заболевания,
+        клеточные мутации приводят к развитию раковых опухолей.
+    </p>
+    <footer id="footer">
+
+    </footer>
+</div>
+<!--<script src="static/script.js"></script>-->
+</body>
+</html>

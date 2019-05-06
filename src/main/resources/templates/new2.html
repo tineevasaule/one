@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ClinicKG</title>
+
+    <style>
+body {
+	/* background: #000;*/
+	color: rgb(0, 0, 0);
+	font-family: 'Montserrat', sans-serif;
+	padding: 0;
+  margin: 0;
+  background: url(logo/back.jpg)
+}
+
+div, p, a, img, form, button {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul, li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+	background: #ADD8E6;
+	box-shadow: 0 0 25px 5px grey;
+}
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.menu {
+	display: flex;
+	margin-left: 160px;
+}
+
+.menu li {
+    list-decoration: none;
+	font-size: 18px;
+	margin-right: 25px;
+}
+
+.menu li a {
+	color: #000;
+	padding: 12px 0;
+}
+.logo {
+    width: 140px;
+    height: 100px;
+}
+.nav {
+	float: right;
+}
+
+.button {
+		padding: 10px;
+		background: rgb(104, 128, 163);
+		color: black;
+		text-decoration: none;
+		font-size: 12px;
+		margin-left: 10px;
+	}
+
+	.slider{
+		max-width: 90%;
+		position: relative;
+		margin: auto;
+		height: 400px;
+		margin-bottom: 15px;
+	}
+	/* Картинка мастабируется по отношению к родительскому элементу */
+	.slider .item img {
+		object-fit: cover;
+		width: 100%;
+		height: 400px;
+		border: none !important;
+		box-shadow: none !important;
+	}
+	/* Кнопки вперед и назад */
+	.slider .prev, .slider .next {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		top: 50%;
+		width: auto;
+		margin-top: -22px;
+		padding: 16px;
+		color: white;
+		font-weight: bold;
+		font-size: 18px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+	}
+	.slider .next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+	/* При наведении на кнопки добавляем фон кнопок */
+	.slider .prev:hover,
+	.slider .next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Кружочки */
+	.slider-dots {
+		text-align: center;
+	}
+	.slider-dots_item{
+		cursor: pointer;
+		height: 12px;
+		width: 12px;
+		margin: 0 2px;
+		background-color: #ddd;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+	}
+	.active,
+	.slider-dots_item:hover {
+		background-color: #aaa;
+	}
+	/* Анимация слайдов */
+	.slider .item {
+		-webkit-animation-name: fade;
+		-webkit-animation-duration: 1.5s;
+		animation-name: fade;
+		animation-duration: 1.5s;
+	}
+	@-webkit-keyframes fade {
+		from {
+			opacity: .4
+		}
+		to {
+			opacity: 1
+		}
+	}
+	@keyframes fade {
+		from {
+			opacity: .4
+		}
+		to {
+			opacity: 1
+		}
+	}
+.news {
+	display: flex;
+	align-items: center;
+
+}
+.new {
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+.block {
+	width: 25%;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	margin: 10px;
+}
+.block .media{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	color: black;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	text-align: center;
+	padding-top: 130px;
+	transition: .5s
+}
+.block:hover > .media {
+	opacity: 1.0;
+	background:rgb(70, 107, 163);
+	width: 100%;
+	top: 80%;
+	padding-top: 0;
+	font-size: 10px;
+}
+.block .media .h1 {
+	margin: 0;
+}
+.about {
+	display: flex;
+	align-items: center;
+}
+.ab {
+	float: right;
+	font-size: 18px;
+	padding: 15px;
+}
+.text {
+	display: block;
+	position: relative;
+	text-align: center;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.texty {
+	display: block;
+	position: relative;
+	text-align: left;
+	float: right;
+	margin-top: 10px;
+	font-size: 18px;
+}
+.vrachi {
+	overflow: auto;
+}
+
+.vrach {
+	width: 25%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.wi {
+	overflow: auto;
+}
+
+.wir {
+	width: 25%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.novosti {
+  display: block;
+	position: relative;
+	text-align: center;
+	margin-top: 30px;
+}
+
+#footer {
+	background: #ADD8E6;
+	height: 100px;
+	clear: both;
+}
+
+    </style>
+    <script>
+        /* Индекс слайда по умолчанию */
+var slideIndex = 1;
+showSlides(slideIndex);
+
+/* Функция увеличивает индекс на 1, показывает следующй слайд*/
+function plusSlide() {
+    showSlides(slideIndex += 1);
+}
+
+/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+function minusSlide() {
+    showSlides(slideIndex -= 1);
+}
+
+/* Устанавливает текущий слайд */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Основная функция слайдера */
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("item");
+    var dots = document.getElementsByClassName("slider-dots_item");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+
+
+
+
+    </script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <img src="logo/logo.png" class="logo">
+            <ul class="menu">
+                <li><a href="/index" class="ssylka">Главная</a></li>
+                <!-- <li><a href="#1" class="ssylka">Новости</a></li>
+                  <li><a href="#2" class="ssylka">О нас</a></li>
+                      <li><a href="#3" class="ssylka">Врачи</a></li> -->
+                <li><a href="/kont" class="ssylka">Контакты</a></li>
+            </ul>
+            <div class="navigat">
+                <a href="https://www.instagram.com/on_clinic.kg/?hl=ru"><img src="logo/i.png"width="40px" height="auto"></a>
+                <a href="https://www.facebook.com/onclinic.kg/?ref=aymt_homepage_panel"><img src="logo/f.png" width="40px" height="auto"></a>
+                <a href="https://wa.me/996702770570"><img src="logo/wa.png" width="40px" height="auto"></a>
+            </div><div class="nav2">
+            <button class="button"><a href = "/registr"><h3>Зарегистрироваться</h3></a></button>
+            <button class="button"><a href = "/vhod"><h3>Вход</h3></a></button>
+        </div>
+        </nav>
+    </div>
+</header>
+<br>
+<div class="container">
+        <span>
+					<h1>Чем грозит передозировка витаминов?</h1>
+				</span>
+    <div class="novosti">
+        <img src="news/2.png" width="600px" height="auto">
+    </div>
+    <p>Прежде, чем принимать витаминные препараты, убедитесь в том, что ваш организм действительно нуждается в их применении.
+        Передозировка витаминов может носить более угрожающий характер, чем их недостаток.
+        Гипервитаминоз - это группа симптомов, вызванные избытком витаминов в организме, чаще
+        всего в результате Чем грозит передозировка витаминов передозировки. Он касается,
+        прежде всего, жирорастворимых витаминов: А, D, E и K. Со слишком большим потреблением витаминов,
+        растворимых в воде организм может справиться, выводя их вместе с мочой.
+        Другая ситуация возникает при избытке жирорастворимых витаминов, они вызывают гипервитаминоз.<br><br>
+        Избыток витамина D – имеет очень опасное действие. У взрослых проявляется тошнотой, рвотой, зудом кожи,
+        болью головы и глаз, поносом, повышенным мочеиспусканием,
+        а также отложением избыточного количества кальция в мягких тканях,
+        в печени, почках, легких, сердце и кровеносных сосудах.
+        Опасны последствия передозировки витамина D у беременных женщин и кормящих матерей.
+        Они вызывают уродства плода, болезни костей у новорожденных.
+        Слишком большие дозы витамина Е могут вызвать расстройство желудочно-кишечного тракта,
+        чувство усталости и слабости, а также сонливость, головные боли, мышечную слабость, диплопию.
+        Увеличенный запас витамина Е в сравнении с множеством других витаминов имеет меньше побочных эффектов.
+        А ведет чаще всего неограниченное применение пищевых добавок.<br><br>
+        Передозировка этого витамина бывает, но редко.
+
+        Витамин А в слишком больших дозах может вызвать тошноту, нарушение зрения, усталость, тяжесть,
+        раздражительность, отсутствие аппетита, рвоту, головную боль, выпадение волос, зуд, трещины и кровоточивость губ,
+        замедленный рост у детей, шелушение кожи, язвы, нарушение костей, кровотечения, деформации черепа и лица,
+        дисфункции сердца, почек, фиброз печени и центральной нервной системы. К избытку витамина.
+        А ведет чаще всего неограниченное применение пищевых добавок.<br><br>
+        Передозировка витамина K, регулирующий процесс свертывания крови, приводит к распаду эритроцитов и,
+        следовательно, к анемии. Последствиями избытка этого элемента также является потливость и чувство жара,
+        а у новорожденных - желтуха, и даже повреждения тканей головного мозга! Организм человека,
+        особенно чувствителен к передозировке витамина с (так называемой аскорбиновой кислоте),
+        которая содержится в основном в овощах и фруктах. Его избыток может привести к кристаллизации солей и
+        образование камней в почках, а прием очень больших доз может привести к нарушениям в
+        работе желудочно-кишечного тракта и нервной системы. Кроме того, избыток витамина С вызывает высыпания кожи.
+        Его потребление в больших дозах плохо сказывается, особенно на следующую категорию людей: беременные женщины,
+        больные сахарным диабетом, у людей с катарактой хрусталика и тромбофлебитом – вызывает гипервитаминоз.<br><br>
+
+        Помимо вредного воздействия, избыток некоторых элементов, провоцирует снижение или потерю в организме других необходимых ему веществ.
+        Таким образом, кроме последствий гипервитаминоза, наблюдается недостаточность минералов и других витаминов, влияющих на процессы,
+        происходящие в организме. Правильный рацион питания поможет избежать приема специальных добавок, а также гипервитаминоза.
+        Диетологи во всем мире, утверждают, что все необходимые элементы для полноценной работы организма, мы можем получить с повседневной пищей.
+
+        Но если же, правильное питание является невозможным, врач-терапевт может назначить прием витаминных препаратов,
+        обычно отечественных производителей. Эти препараты создаются для жителей региона, у которых наблюдаются одинаковые потребности в элементах.
+        Данные препараты, проходят строгий контроль и проверку, чтобы они не приводили к гипервитаминозу.
+
+        Есть категория препаратов, где суточные нормы витаминов, могут быть выше в десять, а то и в двадцать раз. Их нельзя применять,
+        без консультации врача, иначе передозировку витаминов не избежать. Поэтому, перед тем, как вы включите в свой ежедневный рацион питания –
+        витаминные добавки, следует проконсультироваться со специалистом. Не стоит использовать дополнительные добавки круглый год.
+        Приемлемо их применять зимой и осенью: в остальное время года, наш рацион питания не нуждается во включении витаминных добавок.
+        Также рекомендуется, в приеме синтетических витаминов, делать перерывы в каждые три-четыре недели,
+        так как постоянный прием специальных добавок, может спровоцировать гипервитаминоз.
+    </p>
+    <footer id="footer">
+
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
